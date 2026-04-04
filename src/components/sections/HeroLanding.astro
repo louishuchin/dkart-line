@@ -1,0 +1,256 @@
+---
+/**
+ * DKART LINE — Hero Section
+ * Full-screen cinematic hero with animated speed lines,
+ * massive brand name, and generated tagline.
+ */
+---
+
+<section id="hero" class="hero dk-grain">
+  <!-- Animated speed lines background -->
+  <div class="hero__lines" aria-hidden="true">
+    <div class="hero__line hero__line--1"></div>
+    <div class="hero__line hero__line--2"></div>
+    <div class="hero__line hero__line--3"></div>
+    <div class="hero__line hero__line--4"></div>
+    <div class="hero__line hero__line--5"></div>
+    <div class="hero__line hero__line--6"></div>
+    <div class="hero__line hero__line--7"></div>
+    <div class="hero__line hero__line--8"></div>
+  </div>
+
+  <!-- Diagonal racing stripes -->
+  <div class="hero__stripes" aria-hidden="true"></div>
+
+  <!-- Drift smoke suggestion -->
+  <div class="hero__smoke" aria-hidden="true"></div>
+
+  <!-- Content -->
+  <div class="hero__content">
+    <div class="hero__badge">
+      <span class="hero__badge-line"></span>
+      <span class="hero__badge-text">Drift Kart Project</span>
+      <span class="hero__badge-line"></span>
+    </div>
+
+
+    <h1 class="hero__title dk-display">
+      <span class="hero__title-line">DKART</span>
+      <span class="hero__title-line hero__title-line--accent">LINE</span>
+    </h1>
+
+    <p class="hero__tagline">
+      Né dans un garage. Fait pour drifter.
+    </p>
+
+    <div class="hero__meta">
+      <span class="hero__meta-item">EST. 2024</span>
+      <span class="hero__meta-sep">—</span>
+      <span class="hero__meta-item">UTT TROYES</span>
+      <span class="hero__meta-sep">—</span>
+      <span class="hero__meta-item">BUILT WITH PASSION</span>
+    </div>
+
+    <!-- Call to action pour voir les karts -->
+    <div class="hero__cta">
+      <a href="/karts" class="dk-btn dk-btn--outline">Découvrir nos Karts</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--dk-bg);
+    overflow: hidden;
+  }
+
+  /* ---- Speed Lines ---- */
+  .hero__lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .hero__line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(var(--dk-accent-rgb), 0.06) 20%,
+      rgba(var(--dk-accent-rgb), 0.15) 50%,
+      rgba(var(--dk-accent-rgb), 0.06) 80%,
+      transparent 100%
+    );
+    width: 60%;
+    animation: dk-drift-line linear infinite;
+  }
+
+  .hero__line--1 { top: 12%; animation-duration: 6s; animation-delay: 0s; width: 40%; }
+  .hero__line--2 { top: 25%; animation-duration: 8s; animation-delay: 1.2s; width: 55%; }
+  .hero__line--3 { top: 38%; animation-duration: 5s; animation-delay: 0.5s; width: 35%; }
+  .hero__line--4 { top: 50%; animation-duration: 9s; animation-delay: 3s; width: 65%; }
+  .hero__line--5 { top: 62%; animation-duration: 7s; animation-delay: 2s; width: 45%; }
+  .hero__line--6 { top: 74%; animation-duration: 6.5s; animation-delay: 4s; width: 50%; }
+  .hero__line--7 { top: 85%; animation-duration: 8.5s; animation-delay: 1s; width: 38%; }
+  .hero__line--8 { top: 95%; animation-duration: 7.5s; animation-delay: 2.5s; width: 42%; }
+
+  /* ---- Diagonal stripes ---- */
+  .hero__stripes {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 80px,
+      rgba(var(--dk-accent-rgb), 0.015) 80px,
+      rgba(var(--dk-accent-rgb), 0.015) 81px
+    );
+    z-index: 0;
+  }
+
+  /* ---- Drift smoke ---- */
+  .hero__smoke {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 120%;
+    height: 50%;
+    background: radial-gradient(
+      ellipse at 50% 100%,
+      rgba(var(--dk-accent-rgb), 0.04) 0%,
+      transparent 70%
+    );
+    z-index: 0;
+    animation: smoke-drift 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes smoke-drift {
+    0% { transform: translateX(-5%) scale(1); opacity: 0.6; }
+    100% { transform: translateX(5%) scale(1.1); opacity: 1; }
+  }
+
+  /* ---- Content ---- */
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--dk-space-md);
+    animation: dk-fade-up 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  /* Logo */
+  .hero__logo-container {
+    margin-bottom: var(--dk-space-sm);
+    opacity: 0;
+    animation: dk-fade-up 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .hero__logo {
+    height: 120px;
+    width: auto;
+    filter: drop-shadow(0 0 20px rgba(var(--dk-accent-rgb), 0.3));
+  }
+
+  /* Badge */
+  .hero__badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: var(--dk-space-sm);
+  }
+
+  .hero__badge-line {
+    width: 40px;
+    height: 1px;
+    background: var(--dk-accent);
+    opacity: 0.5;
+  }
+
+  .hero__badge-text {
+    font-family: var(--dk-font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--dk-accent);
+  }
+
+  /* Title */
+  .hero__title {
+    font-size: clamp(5rem, 15vw, 14rem);
+    line-height: 0.85;
+    letter-spacing: 0.06em;
+  }
+
+  .hero__title-line {
+    display: block;
+    color: var(--dk-text);
+  }
+
+  .hero__title-line--accent {
+    color: var(--dk-accent);
+    text-shadow: 0 0 60px rgba(var(--dk-accent-rgb), 0.3),
+                 0 0 120px rgba(var(--dk-accent-rgb), 0.1);
+  }
+
+  /* Tagline */
+  .hero__tagline {
+    font-family: var(--dk-font-body);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: var(--dk-secondary);
+    letter-spacing: 0.02em;
+    font-style: italic;
+    max-width: 500px;
+    opacity: 0;
+    animation: dk-fade-up 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  /* Meta info */
+  .hero__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: var(--dk-space-sm);
+    opacity: 0;
+    animation: dk-fade-up 0.8s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .hero__meta-item {
+    font-family: var(--dk-font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--dk-muted);
+    text-transform: uppercase;
+  }
+
+  .hero__meta-sep {
+    color: var(--dk-accent);
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+
+  /* CTA */
+  .hero__cta {
+    margin-top: var(--dk-space-sm);
+    opacity: 0;
+    animation: dk-fade-up 0.8s 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes smoke-drift {
+    0% { transform: translateX(-5%) scale(1); opacity: 0.6; }
+    100% { transform: translateX(5%) scale(1.1); opacity: 1; }
+  }
+</style>

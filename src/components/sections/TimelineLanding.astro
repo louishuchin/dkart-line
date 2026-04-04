@@ -1,0 +1,372 @@
+---
+/**
+ * DKART LINE — Timeline Section ("L'Histoire")
+ * Vertical timeline with scroll-triggered reveal animations.
+ * Each milestone from the source story, rewritten in punchy event-ready tone.
+ */
+
+const milestones = [
+  {
+    period: "Enfance",
+    year: "~2005",
+    title: "Dans le sang",
+    body: "Né dans une famille de mécaniciens passionnés — père motard, oncle garagiste, grand-père bricoleur. Ici, on ne regarde pas les machines. On les ouvre.",
+    icon: "🔧",
+  },
+  {
+    period: "Enfance",
+    year: "~2010",
+    title: "5 ans, première machine",
+    body: "Une pocket bike à 5 ans. Pas juste pour rouler — pour comprendre. Démonter, modifier, repousser les limites. L'obsession commence ici.",
+    icon: "🏍️",
+  },
+  {
+    period: "Adolescence",
+    year: "~2015",
+    title: "Premiers prototypes sauvages",
+    body: "Un vélo modifié avec une troisième roue anti-cabrage. Puis un vélo motorisé avec un moteur de tronçonneuse. Garage engineering, version brute.",
+    icon: "⚡",
+  },
+  {
+    period: "UTT — début du cursus",
+    year: "2022",
+    title: "L'épreuve du feu",
+    body: "Arrivée à l'UTT. Premier semestre raté. Deuxième semestre décisif : tout valider ou être exclu. Résultat — tout validé. La résilience, c'est un moteur aussi.",
+    icon: "🎓",
+  },
+  {
+    period: "UTT — troisième semestre",
+    year: "2023",
+    title: "L'idée prend forme",
+    body: "Le concept de drift kart naît d'un rêve de drift trike jamais réalisé. Puis la découverte d'une entreprise US qui développe le même concept. Confirmation : il y a un marché. Il y a quelque chose à construire.",
+    icon: "💡",
+  },
+  {
+    period: "UTT — quatrième semestre",
+    year: "2023",
+    title: "Refusé. Mais pas arrêté.",
+    body: "L'école refuse le projet. Une matière ratée. Tout le monde pense que c'est fini. Mais les économies sortent. Un box est loué. Un groupe électrogène acheté. Le projet continue — seul.",
+    icon: "🔥",
+  },
+  {
+    period: "UTT — quatrième semestre",
+    year: "2024",
+    title: "Premier prototype",
+    body: "Un kart qui roule. Imparfait — transmission bancale, direction à revoir. Mais il existe. La preuve de concept est là, construite à la force du poignet.",
+    icon: "🏎️",
+  },
+  {
+    period: "UTT — cinquième semestre",
+    year: "2024",
+    title: "L'école revient",
+    body: "Retournement total. L'UTT reconnaît le travail solo accompli dans des conditions impossibles. Le projet devient officiel. L'équipe passe à trois. Un FA Kart donneur de qualité professionnelle est acquis.",
+    icon: "🤝",
+  },
+  {
+    period: "UTT — sixième semestre",
+    year: "2025",
+    title: "Le kart drift enfin",
+    body: "Quatre dans l'équipe. Des semaines de travail acharné. Corrections, optimisations, tests. Et puis ce moment — le kart fonctionne. Le drift kart existe enfin.",
+    icon: "🏁",
+  },
+  {
+    period: "Aujourd'hui",
+    year: "2025",
+    title: "Un stand au championnat",
+    body: "Depuis le quatrième semestre, des appels au championnat de drift. Chaque semaine. Sans relâche. Jusqu'à obtenir un stand. Dkart Line passe du garage à la compétition.",
+    icon: "🏆",
+  },
+];
+---
+
+<section id="timeline" class="timeline dk-grain">
+  <div class="timeline__header dk-reveal">
+    <span class="timeline__label">L'Histoire</span>
+    <h2 class="timeline__title dk-display">
+      Du garage<br /><span class="dk-text-accent">au circuit</span>
+    </h2>
+    <p class="timeline__subtitle">
+      Chaque refus a été un carburant. Chaque obstacle, un virage à prendre.
+      Voici le parcours.
+    </p>
+  </div>
+
+  <div class="timeline__track">
+    <!-- Vertical line -->
+    <div class="timeline__line" aria-hidden="true"></div>
+
+    {
+      milestones.map((m, i) => (
+        <div
+          class={`timeline__item dk-reveal ${i % 2 === 0 ? "timeline__item--left" : "timeline__item--right"}`}
+          style={`transition-delay: ${i * 0.05}s`}
+        >
+          <div class="timeline__dot" aria-hidden="true">
+            <span class="timeline__dot-icon">{m.icon}</span>
+          </div>
+          <div class="timeline__card">
+            <div class="timeline__card-header">
+              <span class="timeline__period">{m.period}</span>
+              <span class="timeline__year">{m.year}</span>
+            </div>
+            <h3 class="timeline__card-title dk-display">{m.title}</h3>
+            <p class="timeline__card-body">{m.body}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Closing statement -->
+  <div class="timeline__closing dk-reveal">
+    <div class="timeline__closing-border"></div>
+    <blockquote class="timeline__closing-quote dk-display">
+      "Ce projet a été retardé, refusé, compliqué.<br />
+      Mais il n'a jamais été abandonné.<br />
+      <span class="dk-text-accent">Et ce n'est que le début.</span>"
+    </blockquote>
+  </div>
+</section>
+
+<script>
+  // Scroll-triggered reveal via IntersectionObserver
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".dk-reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -60px 0px",
+      },
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+  });
+</script>
+
+<style>
+  .timeline {
+    position: relative;
+    padding: var(--dk-space-3xl) var(--dk-space-lg);
+    background: var(--dk-bg);
+    overflow: hidden;
+  }
+
+  /* ---- Header ---- */
+  .timeline__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--dk-space-3xl);
+  }
+
+  .timeline__label {
+    display: inline-block;
+    font-family: var(--dk-font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--dk-accent);
+    margin-bottom: var(--dk-space-sm);
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(var(--dk-accent-rgb), 0.3);
+  }
+
+  .timeline__title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: var(--dk-space-md);
+    color: var(--dk-text);
+  }
+
+  .timeline__subtitle {
+    font-family: var(--dk-font-body);
+    font-size: 1.1rem;
+    color: var(--dk-secondary);
+    line-height: 1.7;
+  }
+
+  /* ---- Track ---- */
+  .timeline__track {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--dk-space-xl) 0;
+  }
+
+  .timeline__line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--dk-border) 5%,
+      var(--dk-border) 95%,
+      transparent 100%
+    );
+    transform: translateX(-50%);
+  }
+
+  /* ---- Item ---- */
+  .timeline__item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--dk-space-xl);
+    width: 100%;
+  }
+
+  .timeline__item--left {
+    justify-content: flex-start;
+    padding-right: calc(50% + 40px);
+  }
+
+  .timeline__item--right {
+    justify-content: flex-end;
+    padding-left: calc(50% + 40px);
+  }
+
+  /* ---- Dot ---- */
+  .timeline__dot {
+    position: absolute;
+    left: 50%;
+    top: 0.5rem;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--dk-bg-elevated);
+    border: 2px solid var(--dk-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition:
+      border-color var(--dk-transition),
+      box-shadow var(--dk-transition);
+  }
+
+  .timeline__item.is-visible .timeline__dot {
+    border-color: var(--dk-accent);
+    box-shadow: 0 0 20px rgba(var(--dk-accent-rgb), 0.2);
+  }
+
+  .timeline__dot-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  /* ---- Card ---- */
+  .timeline__card {
+    background: var(--dk-bg-elevated);
+    border: 1px solid var(--dk-border);
+    padding: var(--dk-space-md) var(--dk-space-lg);
+    position: relative;
+    transition:
+      border-color var(--dk-transition),
+      box-shadow var(--dk-transition);
+  }
+
+  .timeline__item.is-visible .timeline__card {
+    border-color: rgba(var(--dk-accent-rgb), 0.15);
+  }
+
+  .timeline__card:hover {
+    border-color: rgba(var(--dk-accent-rgb), 0.3);
+    box-shadow: 0 0 30px rgba(var(--dk-accent-rgb), 0.05);
+  }
+
+  .timeline__card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline__period {
+    font-family: var(--dk-font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--dk-accent);
+    padding: 0.2rem 0.6rem;
+    border: 1px solid rgba(var(--dk-accent-rgb), 0.3);
+  }
+
+  .timeline__year {
+    font-family: var(--dk-font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--dk-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .timeline__card-title {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--dk-text);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .timeline__card-body {
+    font-family: var(--dk-font-body);
+    font-size: 0.95rem;
+    color: var(--dk-secondary);
+    line-height: 1.65;
+  }
+
+  /* ---- Closing ---- */
+  .timeline__closing {
+    max-width: 800px;
+    margin: var(--dk-space-3xl) auto 0;
+    text-align: center;
+  }
+
+  .timeline__closing-border {
+    width: 60px;
+    height: 3px;
+    background: var(--dk-accent);
+    margin: 0 auto var(--dk-space-lg);
+  }
+
+  .timeline__closing-quote {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    color: var(--dk-text);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .timeline__line {
+      left: 24px;
+    }
+
+    .timeline__item--left,
+    .timeline__item--right {
+      padding-left: 80px;
+      padding-right: 0;
+      justify-content: flex-start;
+    }
+
+    .timeline__dot {
+      left: 24px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .timeline__dot-icon {
+      font-size: 1rem;
+    }
+  }
+</style>

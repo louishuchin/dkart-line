@@ -1,0 +1,297 @@
+---
+/**
+ * DKART LINE — Contact Section (Footer)
+ * Minimal full-width dark section with brand lockup,
+ * styled contact form, and social links.
+ */
+---
+
+<section id="contact" class="contact dk-grain">
+  <div class="contact__inner">
+    <!-- Left: Brand lockup + info -->
+    <div class="contact__brand dk-reveal">
+      <div class="contact__brand-name dk-display">
+        DKART<span class="dk-text-accent"> LINE</span>
+      </div>
+      <p class="contact__brand-tagline">
+        Né dans un garage. Fait pour drifter.
+      </p>
+
+      <div class="contact__social">
+        <a
+          href="https://instagram.com/dkartline"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact__social-link"
+          id="instagram-link"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="2"
+              y="2"
+              width="20"
+              height="20"
+              rx="5"
+              stroke="currentColor"
+              stroke-width="2"></rect>
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"
+            ></circle>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"></circle>
+          </svg>
+          <span>@dkartline</span>
+        </a>
+      </div>
+
+      <div class="contact__closing-statement">
+        <p>
+          Un projet de passion.<br />Une machine construite à la main.<br />Le
+          drift, c'est notre langage.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Contact form -->
+    <div class="contact__form-wrapper dk-reveal" style="transition-delay: 0.1s">
+      <h3 class="contact__form-title dk-display">Contactez-nous</h3>
+      <p class="contact__form-subtitle">
+        Une question, une proposition, ou juste envie de parler drift ?
+      </p>
+
+      <form
+        class="contact__form"
+        id="contact-form"
+        action="https://formsubmit.co/louis.huchin@utt.fr"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <!-- Honey pot for spam protection -->
+        <p class="hidden" style="display:none;">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+
+        <!-- Configuration FormSubmit Fallback -->
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nouveau message depuis le site Dkart Line !"
+        />
+        <input type="hidden" name="_template" value="table" />
+        <!-- Vous pouvez décommenter la ligne ci-dessous pour désactiver le captcha si vous le souhaitez -->
+        <!-- <input type="hidden" name="_captcha" value="false"> -->
+
+        <div class="contact__field">
+          <label for="contact-name" class="dk-label">Nom</label>
+          <input
+            type="text"
+            id="contact-name"
+            name="name"
+            class="dk-input"
+            placeholder="Votre nom"
+            required
+          />
+        </div>
+
+        <div class="contact__field">
+          <label for="contact-email" class="dk-label">Email</label>
+          <input
+            type="email"
+            id="contact-email"
+            name="email"
+            class="dk-input"
+            placeholder="votre@email.com"
+            required
+          />
+        </div>
+
+        <div class="contact__field">
+          <label for="contact-message" class="dk-label">Message</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            class="dk-textarea"
+            rows="5"
+            placeholder="Votre message..."
+            required></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="dk-btn contact__submit"
+          id="contact-submit"
+        >
+          Envoyer
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 8H14M14 8L9 3M14 8L9 13"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="contact__bottom">
+    <span class="contact__copyright"
+      >© 2025 Dkart Line. Tous droits réservés.</span
+    >
+    <span class="contact__credit">Conçu avec passion à Troyes, France.</span>
+  </div>
+</section>
+
+<style>
+  .contact {
+    position: relative;
+    background: var(--dk-bg);
+    border-top: 1px solid var(--dk-border);
+    padding: var(--dk-space-3xl) var(--dk-space-lg) var(--dk-space-lg);
+  }
+
+  .contact__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--dk-space-3xl);
+    align-items: start;
+  }
+
+  /* ---- Brand side ---- */
+  .contact__brand-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.06em;
+    margin-bottom: var(--dk-space-xs);
+  }
+
+  .contact__brand-tagline {
+    font-family: var(--dk-font-body);
+    font-size: 1rem;
+    color: var(--dk-secondary);
+    font-style: italic;
+    margin-bottom: var(--dk-space-lg);
+  }
+
+  /* Social */
+  .contact__social {
+    margin-bottom: var(--dk-space-lg);
+  }
+
+  .contact__social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--dk-font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dk-secondary);
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--dk-border);
+    transition: all var(--dk-transition);
+  }
+
+  .contact__social-link:hover {
+    border-color: var(--dk-accent);
+    color: var(--dk-accent);
+    box-shadow: 0 0 20px rgba(var(--dk-accent-rgb), 0.1);
+  }
+
+  .contact__closing-statement {
+    border-left: 3px solid var(--dk-accent);
+    padding-left: var(--dk-space-md);
+  }
+
+  .contact__closing-statement p {
+    font-family: var(--dk-font-body);
+    font-size: 0.95rem;
+    color: var(--dk-muted);
+    line-height: 1.8;
+  }
+
+  /* ---- Form side ---- */
+  .contact__form-wrapper {
+    background: var(--dk-bg-elevated);
+    border: 1px solid var(--dk-border);
+    padding: var(--dk-space-xl);
+  }
+
+  .contact__form-title {
+    font-size: 1.5rem;
+    color: var(--dk-text);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  .contact__form-subtitle {
+    font-family: var(--dk-font-body);
+    font-size: 0.9rem;
+    color: var(--dk-muted);
+    margin-bottom: var(--dk-space-lg);
+  }
+
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dk-space-md);
+  }
+
+  .contact__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact__submit {
+    align-self: flex-start;
+    margin-top: var(--dk-space-xs);
+  }
+
+  /* ---- Bottom bar ---- */
+  .contact__bottom {
+    max-width: 1200px;
+    margin: var(--dk-space-3xl) auto 0;
+    padding-top: var(--dk-space-lg);
+    border-top: 1px solid var(--dk-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact__copyright,
+  .contact__credit {
+    font-family: var(--dk-font-body);
+    font-size: 0.75rem;
+    color: var(--dk-muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .contact__inner {
+      grid-template-columns: 1fr;
+      gap: var(--dk-space-xl);
+    }
+
+    .contact__bottom {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

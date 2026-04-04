@@ -1,0 +1,411 @@
+/* ============================================================
+   DKART LINE — BRAND IDENTITY SYSTEM
+   ============================================================
+   
+   A complete brand design system for Dkart Line — a drift kart
+   project born from raw passion, garage culture, and engineering.
+   
+   This file is the single source of truth for all brand tokens.
+   Import it globally. Use it for the website, Instagram templates,
+   print materials, and any future brand touchpoints.
+   
+   ============================================================
+   COLOR PALETTE
+   ============================================================
+   
+   --dk-bg:          #0A0A0A    Deep void black — primary background
+   --dk-bg-elevated: #141414    Elevated surface (cards, panels)
+   --dk-bg-overlay:  #1A1A1A    Overlay panels, modals, timeline bg
+   --dk-accent:      #CCFF00    Acid Lime — primary brand accent
+                                A raw, high-voltage neon yellow-green.
+                                Ownable. Aggressive. Impossible to ignore.
+                                Use sparingly for maximum impact.
+   --dk-accent-dim:  #99CC00    Dimmed accent — hover states, secondary
+   --dk-secondary:   #B0B0B0    Warm matte grey — body text, labels
+   --dk-text:        #F0F0F0    Near-white — headings, primary text
+   --dk-muted:       #666666    Muted grey — captions, timestamps
+   --dk-border:      #2A2A2A    Subtle border — dividers, line details
+   --dk-danger:      #FF3333    Error / danger state
+   --dk-success:     #00FF88    Success state (complementary neon)
+   
+   ============================================================
+   TYPOGRAPHY
+   ============================================================
+   
+   --dk-font-display:  'Chakra Petch'
+                        Aggressive, mechanical, techy.
+                        Use for: hero titles, section headings,
+                        brand name lockup, event banners.
+                        Weights: 700 (bold headings)
+   
+   --dk-font-body:     'Inter'
+                        Clean, modern, universally legible.
+                        Use for: body copy, form labels, captions,
+                        navigation, metadata.
+                        Weights: 400 (body), 500 (medium), 600 (semibold)
+   
+   ============================================================
+   SPACING SCALE (8px base)
+   ============================================================
+   
+   --dk-space-xs:   0.5rem     (8px)    Tight — icon gaps, inline spacing
+   --dk-space-sm:   1rem       (16px)   Small — form field gaps
+   --dk-space-md:   1.5rem     (24px)   Medium — paragraph spacing
+   --dk-space-lg:   2.5rem     (40px)   Large — section inner padding
+   --dk-space-xl:   4rem       (64px)   XL — section vertical padding
+   --dk-space-2xl:  6rem       (96px)   2XL — hero/major section gaps
+   --dk-space-3xl:  8rem       (128px)  3XL — maximal breathing room
+   
+   ============================================================
+   VISUAL LANGUAGE
+   ============================================================
+   
+   BORDERS:
+   - Signature left-border: 3px solid var(--dk-accent) on key statements
+   - Card borders: 1px solid var(--dk-border) with accent glow on hover
+   
+   BUTTONS:
+   - Shape: sharp-cornered rectangles (border-radius: 0)
+   - Fill: var(--dk-accent) background, #0A0A0A text
+   - Hover: slight scale(1.02), brightness increase
+   - Font: var(--dk-font-display), uppercase, letter-spacing 0.1em
+   
+   BACKGROUND TREATMENTS:
+   - Noise grain overlay: a subtle 2% opacity noise texture
+   - Diagonal speed lines: thin accent-colored lines at -45deg
+   - Carbon fiber pattern: repeating micro-grid for surface depth
+   
+   GLOW EFFECTS:
+   - Accent glow: box-shadow 0 0 30px rgba(204, 255, 0, 0.15)
+   - Text glow:   text-shadow 0 0 20px rgba(204, 255, 0, 0.3)
+   
+   ============================================================ */
+
+:root {
+  /* ---- COLORS ---- */
+  --dk-bg: #0A0A0A;
+  --dk-bg-elevated: #141414;
+  --dk-bg-overlay: #1A1A1A;
+  --dk-accent: #CCFF00;
+  --dk-accent-dim: #99CC00;
+  --dk-accent-rgb: 204, 255, 0;
+  --dk-secondary: #B0B0B0;
+  --dk-text: #F0F0F0;
+  --dk-muted: #666666;
+  --dk-border: #2A2A2A;
+  --dk-danger: #FF3333;
+  --dk-success: #00FF88;
+
+  /* Aliases for generic handoff */
+  --color-bg: var(--dk-bg);
+  --color-accent: var(--dk-accent);
+  --color-secondary: var(--dk-secondary);
+  --color-text: var(--dk-text);
+
+  /* ---- TYPOGRAPHY ---- */
+  --dk-font-display: 'Chakra Petch', 'Arial Black', sans-serif;
+  --dk-font-body: 'Inter', 'Helvetica Neue', sans-serif;
+
+  /* Aliases */
+  --font-display: var(--dk-font-display);
+  --font-body: var(--dk-font-body);
+
+  /* ---- SPACING SCALE ---- */
+  --dk-space-xs: 0.5rem;
+  --dk-space-sm: 1rem;
+  --dk-space-md: 1.5rem;
+  --dk-space-lg: 2.5rem;
+  --dk-space-xl: 4rem;
+  --dk-space-2xl: 6rem;
+  --dk-space-3xl: 8rem;
+
+  /* ---- BORDERS & RADII ---- */
+  --dk-radius: 0px;
+  --dk-border-accent: 3px solid var(--dk-accent);
+
+  /* ---- TRANSITIONS ---- */
+  --dk-transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dk-transition-fast: 0.15s ease-out;
+
+  /* ---- GLOW ---- */
+  --dk-glow-accent: 0 0 30px rgba(var(--dk-accent-rgb), 0.15);
+  --dk-glow-accent-strong: 0 0 50px rgba(var(--dk-accent-rgb), 0.3);
+  --dk-text-glow: 0 0 20px rgba(var(--dk-accent-rgb), 0.3);
+}
+
+/* ============================================================
+   BRAND BASE RESET & STYLES
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--dk-bg);
+  color: var(--dk-text);
+  font-family: var(--dk-font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dk-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dk-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dk-muted);
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: rgba(var(--dk-accent-rgb), 0.25);
+  color: var(--dk-text);
+}
+
+/* ---- Links ---- */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dk-transition-fast);
+}
+a:hover {
+  color: var(--dk-accent);
+}
+
+/* ============================================================
+   BRAND TYPOGRAPHY CLASSES
+   ============================================================ */
+
+.dk-display {
+  font-family: var(--dk-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.dk-body {
+  font-family: var(--dk-font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--dk-secondary);
+}
+
+/* ============================================================
+   BRAND BUTTON STYLE
+   ============================================================ */
+
+.dk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--dk-accent);
+  color: var(--dk-bg);
+  font-family: var(--dk-font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: var(--dk-radius);
+  cursor: pointer;
+  transition: transform var(--dk-transition-fast), filter var(--dk-transition-fast), box-shadow var(--dk-transition);
+}
+
+.dk-btn:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+  box-shadow: var(--dk-glow-accent);
+  color: var(--dk-bg);
+}
+
+.dk-btn:active {
+  transform: scale(0.98);
+}
+
+.dk-btn--outline {
+  background: transparent;
+  color: var(--dk-accent);
+  border: 2px solid var(--dk-accent);
+}
+
+.dk-btn--outline:hover {
+  background: var(--dk-accent);
+  color: var(--dk-bg);
+}
+
+/* ============================================================
+   BRAND UTILITY CLASSES
+   ============================================================ */
+
+.dk-accent-border-left {
+  border-left: var(--dk-border-accent);
+  padding-left: var(--dk-space-sm);
+}
+
+.dk-glow {
+  box-shadow: var(--dk-glow-accent);
+}
+
+.dk-text-glow {
+  text-shadow: var(--dk-text-glow);
+}
+
+.dk-text-accent {
+  color: var(--dk-accent);
+}
+
+.dk-grain {
+  position: relative;
+}
+.dk-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================
+   FORM STYLES (BRAND)
+   ============================================================ */
+
+.dk-input,
+.dk-textarea {
+  width: 100%;
+  background: var(--dk-bg-elevated);
+  border: 1px solid var(--dk-border);
+  color: var(--dk-text);
+  padding: 1rem 1.25rem;
+  font-family: var(--dk-font-body);
+  font-size: 1rem;
+  border-radius: var(--dk-radius);
+  outline: none;
+  transition: border-color var(--dk-transition), box-shadow var(--dk-transition);
+}
+
+.dk-input:focus,
+.dk-textarea:focus {
+  border-color: var(--dk-accent);
+  box-shadow: 0 0 0 3px rgba(var(--dk-accent-rgb), 0.1);
+}
+
+.dk-input::placeholder,
+.dk-textarea::placeholder {
+  color: var(--dk-muted);
+}
+
+.dk-label {
+  display: block;
+  font-family: var(--dk-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dk-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes dk-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dk-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dk-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dk-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(var(--dk-accent-rgb), 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(var(--dk-accent-rgb), 0.4);
+  }
+}
+
+@keyframes dk-drift-line {
+  0% { transform: translateX(-100%) skewX(-20deg); }
+  100% { transform: translateX(300%) skewX(-20deg); }
+}
+
+/* Scroll-triggered reveal */
+.dk-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dk-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dk-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dk-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
