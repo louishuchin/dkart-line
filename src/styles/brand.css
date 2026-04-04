@@ -10,23 +10,27 @@
    print materials, and any future brand touchpoints.
    
    ============================================================
-   COLOR PALETTE
+   COLOR PALETTE — BLUE & SILVER
    ============================================================
    
-   --dk-bg:          #0A0A0A    Deep void black — primary background
-   --dk-bg-elevated: #141414    Elevated surface (cards, panels)
-   --dk-bg-overlay:  #1A1A1A    Overlay panels, modals, timeline bg
-   --dk-accent:      #CCFF00    Acid Lime — primary brand accent
-                                A raw, high-voltage neon yellow-green.
-                                Ownable. Aggressive. Impossible to ignore.
-                                Use sparingly for maximum impact.
-   --dk-accent-dim:  #99CC00    Dimmed accent — hover states, secondary
-   --dk-secondary:   #B0B0B0    Warm matte grey — body text, labels
-   --dk-text:        #F0F0F0    Near-white — headings, primary text
-   --dk-muted:       #666666    Muted grey — captions, timestamps
-   --dk-border:      #2A2A2A    Subtle border — dividers, line details
-   --dk-danger:      #FF3333    Error / danger state
-   --dk-success:     #00FF88    Success state (complementary neon)
+   --dk-bg:             #080C12    Noir bleuté profond — primary background
+   --dk-bg-elevated:    #0E1420    Surface surélevée (cards, panels)
+   --dk-bg-overlay:     #121A28    Overlay panels, modals, timeline bg
+   --dk-accent:         #0066FF    Bleu électrique vif — primary brand accent
+                                   Franc, saturé, ownable. Attire l'œil.
+                                   Use sparingly for maximum impact.
+   --dk-accent-glow:    #004DCC    Variante sombre — ombres, glows, shadows
+   --dk-accent-rgb:     0, 102, 255  RGB pour rgba() dynamique
+   --dk-silver:         #C0C8D8    Argenté froid — éléments structurants,
+                                   marqueurs de timeline, numéros de section
+   --dk-silver-light:   #E8ECF2    Argenté clair — titres display, highlights,
+                                   textes secondaires importants
+   --dk-text:           #F0F4FF    Blanc bleuté — headings, primary text
+                                   Jamais blanc pur.
+   --dk-muted:          #3A4255    Gris bleuté foncé — captions, timestamps
+   --dk-border:         #1E2A3E    Bordure subtile — dividers, line details
+   --dk-danger:         #FF3333    Error / danger state
+   --dk-success:        #00CC88    Success state
    
    ============================================================
    TYPOGRAPHY
@@ -66,41 +70,49 @@
    
    BUTTONS:
    - Shape: sharp-cornered rectangles (border-radius: 0)
-   - Fill: var(--dk-accent) background, #0A0A0A text
-   - Hover: slight scale(1.02), brightness increase
+   - Fill: var(--dk-accent) background, var(--dk-text) text
+   - Hover: var(--dk-silver) background, var(--dk-bg) text, 0.2s transition
    - Font: var(--dk-font-display), uppercase, letter-spacing 0.1em
    
    BACKGROUND TREATMENTS:
-   - Noise grain overlay: a subtle 2% opacity noise texture
-   - Diagonal speed lines: thin accent-colored lines at -45deg
-   - Carbon fiber pattern: repeating micro-grid for surface depth
+   - Noise grain overlay: subtle 2% opacity with blue hue-rotate
+   - Section gradients: linear-gradient(135deg, #080C12 0%, #0A1628 50%, #0D1F3C 100%)
    
    GLOW EFFECTS:
-   - Accent glow: box-shadow 0 0 30px rgba(204, 255, 0, 0.15)
-   - Text glow:   text-shadow 0 0 20px rgba(204, 255, 0, 0.3)
+   - Accent glow: box-shadow 0 0 30px rgba(0, 77, 204, 0.3)
+   - Text glow:   text-shadow 0 0 20px rgba(0, 77, 204, 0.4)
+   - Opacity range: 0.3 – 0.6, never opaque
    
    ============================================================ */
 
 :root {
   /* ---- COLORS ---- */
-  --dk-bg: #0A0A0A;
-  --dk-bg-elevated: #141414;
-  --dk-bg-overlay: #1A1A1A;
-  --dk-accent: #CCFF00;
-  --dk-accent-dim: #99CC00;
-  --dk-accent-rgb: 204, 255, 0;
-  --dk-secondary: #B0B0B0;
-  --dk-text: #F0F0F0;
-  --dk-muted: #666666;
-  --dk-border: #2A2A2A;
+  --dk-bg: #080C12;
+  --dk-bg-elevated: #0E1420;
+  --dk-bg-overlay: #121A28;
+  --dk-accent: #0066FF;
+  --dk-accent-glow: #004DCC;
+  --dk-accent-dim: #004DCC;
+  --dk-accent-rgb: 0, 102, 255;
+  --dk-accent-glow-rgb: 0, 77, 204;
+  --dk-silver: #C0C8D8;
+  --dk-silver-light: #E8ECF2;
+  --dk-secondary: #C0C8D8;
+  --dk-text: #F0F4FF;
+  --dk-muted: #3A4255;
+  --dk-border: #1E2A3E;
   --dk-danger: #FF3333;
-  --dk-success: #00FF88;
+  --dk-success: #00CC88;
 
   /* Aliases for generic handoff */
   --color-bg: var(--dk-bg);
   --color-accent: var(--dk-accent);
+  --color-accent-glow: var(--dk-accent-glow);
+  --color-silver: var(--dk-silver);
+  --color-silver-light: var(--dk-silver-light);
   --color-secondary: var(--dk-secondary);
   --color-text: var(--dk-text);
+  --color-muted: var(--dk-muted);
 
   /* ---- TYPOGRAPHY ---- */
   --dk-font-display: 'Chakra Petch', 'Arial Black', sans-serif;
@@ -127,10 +139,10 @@
   --dk-transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --dk-transition-fast: 0.15s ease-out;
 
-  /* ---- GLOW ---- */
-  --dk-glow-accent: 0 0 30px rgba(var(--dk-accent-rgb), 0.15);
-  --dk-glow-accent-strong: 0 0 50px rgba(var(--dk-accent-rgb), 0.3);
-  --dk-text-glow: 0 0 20px rgba(var(--dk-accent-rgb), 0.3);
+  /* ---- GLOW (uses accent-glow color, opacity 0.3–0.6) ---- */
+  --dk-glow-accent: 0 0 30px rgba(var(--dk-accent-glow-rgb), 0.3);
+  --dk-glow-accent-strong: 0 0 50px rgba(var(--dk-accent-glow-rgb), 0.5);
+  --dk-text-glow: 0 0 20px rgba(var(--dk-accent-glow-rgb), 0.4);
 }
 
 /* ============================================================
@@ -199,13 +211,14 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1;
+  color: var(--dk-silver-light);
 }
 
 .dk-body {
   font-family: var(--dk-font-body);
   font-weight: 400;
   line-height: 1.65;
-  color: var(--dk-secondary);
+  color: var(--dk-silver);
 }
 
 /* ============================================================
@@ -219,7 +232,7 @@ a:hover {
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   background: var(--dk-accent);
-  color: var(--dk-bg);
+  color: var(--dk-text);
   font-family: var(--dk-font-display);
   font-weight: 700;
   font-size: 0.875rem;
@@ -228,18 +241,24 @@ a:hover {
   border: none;
   border-radius: var(--dk-radius);
   cursor: pointer;
-  transition: transform var(--dk-transition-fast), filter var(--dk-transition-fast), box-shadow var(--dk-transition);
+  transition: background 0.2s ease, color 0.2s ease, transform var(--dk-transition-fast), box-shadow var(--dk-transition);
 }
 
 .dk-btn:hover {
-  transform: scale(1.02);
-  filter: brightness(1.1);
-  box-shadow: var(--dk-glow-accent);
+  background: var(--dk-silver);
   color: var(--dk-bg);
+  transform: scale(1.02);
+  box-shadow: var(--dk-glow-accent);
 }
 
 .dk-btn:active {
   transform: scale(0.98);
+}
+
+.dk-btn:focus-visible {
+  outline: 2px solid var(--dk-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 15px rgba(var(--dk-accent-glow-rgb), 0.4);
 }
 
 .dk-btn--outline {
@@ -249,8 +268,9 @@ a:hover {
 }
 
 .dk-btn--outline:hover {
-  background: var(--dk-accent);
+  background: var(--dk-silver);
   color: var(--dk-bg);
+  border-color: var(--dk-silver);
 }
 
 /* ============================================================
@@ -286,6 +306,7 @@ a:hover {
   background-size: 256px 256px;
   pointer-events: none;
   z-index: 1;
+  filter: hue-rotate(210deg);
 }
 
 /* ============================================================
@@ -309,7 +330,7 @@ a:hover {
 .dk-input:focus,
 .dk-textarea:focus {
   border-color: var(--dk-accent);
-  box-shadow: 0 0 0 3px rgba(var(--dk-accent-rgb), 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--dk-accent-glow-rgb), 0.3);
 }
 
 .dk-input::placeholder,
@@ -324,7 +345,7 @@ a:hover {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--dk-secondary);
+  color: var(--dk-silver);
   margin-bottom: 0.5rem;
 }
 
@@ -361,10 +382,10 @@ a:hover {
 
 @keyframes dk-pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(var(--dk-accent-rgb), 0.2);
+    box-shadow: 0 0 20px rgba(var(--dk-accent-glow-rgb), 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(var(--dk-accent-rgb), 0.4);
+    box-shadow: 0 0 40px rgba(var(--dk-accent-glow-rgb), 0.5);
   }
 }
 

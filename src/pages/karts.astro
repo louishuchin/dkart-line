@@ -146,8 +146,11 @@ import LandingLayout from '../layouts/LandingLayout.astro';
   }
 
   .title-line--accent {
-    color: var(--dk-accent);
-    text-shadow: 0 0 30px rgba(var(--dk-accent-rgb), 0.2);
+    background: linear-gradient(135deg, var(--dk-accent) 0%, var(--dk-silver-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(var(--dk-accent-rgb), 0.3));
   }
 
   .page-desc {
@@ -263,8 +266,8 @@ import LandingLayout from '../layouts/LandingLayout.astro';
   }
   
   .pulse-dot--electric {
-    background: #00DDFF;
-    box-shadow: 0 0 8px #00DDFF;
+    background: var(--dk-accent);
+    box-shadow: 0 0 8px rgba(var(--dk-accent-rgb), 0.6);
   }
 
   @keyframes dk-pulse {

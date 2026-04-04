@@ -66,7 +66,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--dk-bg);
+    background: linear-gradient(135deg, #080C12 0%, #0A1628 50%, #0D1F3C 100%);
     overflow: hidden;
   }
 
@@ -195,13 +195,15 @@
 
   .hero__title-line {
     display: block;
-    color: var(--dk-text);
+    color: var(--dk-silver-light);
   }
 
   .hero__title-line--accent {
-    color: var(--dk-accent);
-    text-shadow: 0 0 60px rgba(var(--dk-accent-rgb), 0.3),
-                 0 0 120px rgba(var(--dk-accent-rgb), 0.1);
+    background: linear-gradient(135deg, var(--dk-accent) 0%, var(--dk-silver-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 40px rgba(var(--dk-accent-rgb), 0.3));
   }
 
   /* Tagline */
