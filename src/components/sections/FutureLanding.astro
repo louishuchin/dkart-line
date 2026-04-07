@@ -1,0 +1,197 @@
+---
+/**
+ * DKART LINE — Future & Partnership Section
+ * Explains upcoming developments and calls for support/sponsorship.
+ */
+---
+
+<section id="future" class="future dk-grain">
+  <div class="future__container">
+    <div class="future__header dk-reveal">
+      <span class="future__label">Notre Vision</span>
+      <h2 class="future__title dk-display">
+        Ce n'est que<br /><span class="dk-text-accent">le début</span>
+      </h2>
+      <p class="future__subtitle">
+        Le prototype fonctionne à merveille, mais notre vision va beaucoup plus loin. Nous avons d'innombrables idées pour améliorer nos karts et continuer le développement de nouveaux produits innovants.
+      </p>
+    </div>
+
+    <div class="future__grid">
+      <!-- R&D Card -->
+      <div class="future__card dk-reveal" style="transition-delay: 0.1s">
+        <div class="future__card-icon">🚀</div>
+        <h3 class="future__card-title dk-display">Recherche & Développement</h3>
+        <p class="future__card-text">
+          Allègement du châssis, optimisation de la motorisation, développement de nouveaux systèmes de direction. Nos brouillons sont remplis d'idées pour repousser les limites de nos drift karts. Le projet est loin d'être terminé !
+        </p>
+      </div>
+
+      <!-- Partenariat Card -->
+      <div class="future__card future__card--accent dk-reveal" style="transition-delay: 0.2s">
+        <div class="future__card-icon">🤝</div>
+        <h3 class="future__card-title dk-display">Soutenir le projet</h3>
+        <p class="future__card-text">
+          Nous sommes des étudiants passionnés. Pour continuer cette aventure dans les meilleures conditions, nous recherchons activement des <strong>coups de main</strong>, que ce soit sous forme de dons de matériel (pièces, outillage) ou de soutien financier.
+        </p>
+        
+        <div class="future__alert">
+          <h4 class="future__alert-title">Défiscalisation à 60%</h4>
+          <p class="future__alert-text">
+            Soutenez-nous via la <strong>Fondation de l'UTT</strong> ! Vos dons (financiers ou matériels de l'entreprise) peuvent bénéficier d'une <strong>défiscalisation à hauteur de 60%</strong>. Un excellent moyen d'associer votre image à un projet étudiant audacieux.
+          </p>
+          <a href="/contact" class="dk-btn dk-btn--outline dk-btn--sm mt-4">Devenir Partenaire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .future {
+    padding: calc(var(--dk-space-3xl) + 40px) var(--dk-space-lg) var(--dk-space-3xl);
+    background: linear-gradient(135deg, #080C12 0%, #0A1628 50%, #0D1F3C 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .future__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .future__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--dk-space-3xl);
+  }
+
+  .future__label {
+    display: inline-block;
+    font-family: var(--dk-font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--dk-accent);
+    margin-bottom: var(--dk-space-sm);
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(var(--dk-accent-rgb), 0.3);
+  }
+
+  .future__title {
+    font-size: clamp(3rem, 7vw, 5rem);
+    margin-bottom: var(--dk-space-md);
+    color: var(--dk-text);
+    line-height: 1;
+  }
+
+  .future__subtitle {
+    font-family: var(--dk-font-body);
+    font-size: 1.2rem;
+    color: var(--dk-secondary);
+    line-height: 1.7;
+  }
+
+  .future__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--dk-space-xl);
+  }
+
+  .future__card {
+    background: var(--dk-bg-elevated);
+    border: 1px solid var(--dk-border);
+    padding: var(--dk-space-xl);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform var(--dk-transition-slow), box-shadow var(--dk-transition-slow), border-color var(--dk-transition);
+  }
+
+  .future__card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(var(--dk-accent-rgb), 0.3);
+  }
+
+  .future__card--accent {
+    border-color: rgba(var(--dk-accent-rgb), 0.4);
+    background: linear-gradient(to bottom right, var(--dk-bg-elevated), rgba(var(--dk-accent-rgb), 0.08));
+  }
+  
+  .future__card--accent:hover {
+    border-color: var(--dk-accent);
+    box-shadow: 0 15px 40px rgba(var(--dk-accent-rgb), 0.2);
+  }
+
+  .future__card-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--dk-space-md);
+    line-height: 1;
+    filter: drop-shadow(0 0 15px rgba(var(--dk-accent-rgb), 0.2));
+  }
+
+  .future__card-title {
+    font-size: 1.8rem;
+    color: var(--dk-text);
+    margin-bottom: var(--dk-space-sm);
+    letter-spacing: 0.02em;
+  }
+
+  .future__card-text {
+    font-family: var(--dk-font-body);
+    color: var(--dk-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--dk-space-lg);
+    flex-grow: 1;
+  }
+  
+  .future__card-text strong {
+    color: var(--dk-text);
+    font-weight: 600;
+  }
+
+  .future__alert {
+    background: rgba(var(--dk-accent-rgb), 0.1);
+    border-left: 3px solid var(--dk-accent);
+    padding: var(--dk-space-md) var(--dk-space-lg);
+    margin-top: auto;
+  }
+
+  .future__alert-title {
+    font-family: var(--dk-font-display);
+    font-size: 1.2rem;
+    color: var(--dk-accent);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .future__alert-text {
+    font-family: var(--dk-font-body);
+    font-size: 0.95rem;
+    color: var(--dk-secondary);
+    line-height: 1.6;
+  }
+  
+  .future__alert-text strong {
+    color: var(--dk-text);
+  }
+
+  .mt-4 {
+    margin-top: 1.5rem;
+    display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    .future {
+      padding-top: calc(var(--dk-space-3xl) + 60px);
+    }
+  }
+</style>
