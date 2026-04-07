@@ -33,23 +33,12 @@
       <span class="hero__badge-line"></span>
     </div>
 
-
     <h1 class="hero__title dk-display">
       <span class="hero__title-line">DKART</span>
       <span class="hero__title-line hero__title-line--accent">LINE</span>
     </h1>
 
-    <p class="hero__tagline">
-      Né dans un garage. Fait pour drifter.
-    </p>
-
-    <div class="hero__meta">
-      <span class="hero__meta-item">EST. 2024</span>
-      <span class="hero__meta-sep">—</span>
-      <span class="hero__meta-item">UTT TROYES</span>
-      <span class="hero__meta-sep">—</span>
-      <span class="hero__meta-item">BUILT WITH PASSION</span>
-    </div>
+    <p class="hero__tagline">Né dans un garage. Fait pour drifter.</p>
 
     <!-- Call to action pour voir les karts -->
     <div class="hero__cta">
@@ -66,7 +55,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #080C12 0%, #0A1628 50%, #0D1F3C 100%);
+    background: linear-gradient(135deg, #080c12 0%, #0a1628 50%, #0d1f3c 100%);
     overflow: hidden;
   }
 
@@ -93,14 +82,54 @@
     animation: dk-drift-line linear infinite;
   }
 
-  .hero__line--1 { top: 12%; animation-duration: 6s; animation-delay: 0s; width: 40%; }
-  .hero__line--2 { top: 25%; animation-duration: 8s; animation-delay: 1.2s; width: 55%; }
-  .hero__line--3 { top: 38%; animation-duration: 5s; animation-delay: 0.5s; width: 35%; }
-  .hero__line--4 { top: 50%; animation-duration: 9s; animation-delay: 3s; width: 65%; }
-  .hero__line--5 { top: 62%; animation-duration: 7s; animation-delay: 2s; width: 45%; }
-  .hero__line--6 { top: 74%; animation-duration: 6.5s; animation-delay: 4s; width: 50%; }
-  .hero__line--7 { top: 85%; animation-duration: 8.5s; animation-delay: 1s; width: 38%; }
-  .hero__line--8 { top: 95%; animation-duration: 7.5s; animation-delay: 2.5s; width: 42%; }
+  .hero__line--1 {
+    top: 12%;
+    animation-duration: 6s;
+    animation-delay: 0s;
+    width: 40%;
+  }
+  .hero__line--2 {
+    top: 25%;
+    animation-duration: 8s;
+    animation-delay: 1.2s;
+    width: 55%;
+  }
+  .hero__line--3 {
+    top: 38%;
+    animation-duration: 5s;
+    animation-delay: 0.5s;
+    width: 35%;
+  }
+  .hero__line--4 {
+    top: 50%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+    width: 65%;
+  }
+  .hero__line--5 {
+    top: 62%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+    width: 45%;
+  }
+  .hero__line--6 {
+    top: 74%;
+    animation-duration: 6.5s;
+    animation-delay: 4s;
+    width: 50%;
+  }
+  .hero__line--7 {
+    top: 85%;
+    animation-duration: 8.5s;
+    animation-delay: 1s;
+    width: 38%;
+  }
+  .hero__line--8 {
+    top: 95%;
+    animation-duration: 7.5s;
+    animation-delay: 2.5s;
+    width: 42%;
+  }
 
   /* ---- Diagonal stripes ---- */
   .hero__stripes {
@@ -133,8 +162,14 @@
   }
 
   @keyframes smoke-drift {
-    0% { transform: translateX(-5%) scale(1); opacity: 0.6; }
-    100% { transform: translateX(5%) scale(1.1); opacity: 1; }
+    0% {
+      transform: translateX(-5%) scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateX(5%) scale(1.1);
+      opacity: 1;
+    }
   }
 
   /* ---- Content ---- */
@@ -153,7 +188,8 @@
   .hero__logo-container {
     margin-bottom: var(--dk-space-sm);
     opacity: 0;
-    animation: dk-fade-up 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: dk-fade-up 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
   }
 
   .hero__logo {
@@ -199,7 +235,11 @@
   }
 
   .hero__title-line--accent {
-    background: linear-gradient(135deg, var(--dk-accent) 0%, var(--dk-silver-light) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--dk-accent) 0%,
+      var(--dk-silver-light) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -216,7 +256,8 @@
     font-style: italic;
     max-width: 500px;
     opacity: 0;
-    animation: dk-fade-up 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: dk-fade-up 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
   }
 
   /* Meta info */
@@ -226,7 +267,8 @@
     gap: 1rem;
     margin-top: var(--dk-space-sm);
     opacity: 0;
-    animation: dk-fade-up 0.8s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: dk-fade-up 0.8s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
   }
 
   .hero__meta-item {
@@ -248,11 +290,18 @@
   .hero__cta {
     margin-top: var(--dk-space-sm);
     opacity: 0;
-    animation: dk-fade-up 0.8s 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: dk-fade-up 0.8s 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
   }
 
   @keyframes smoke-drift {
-    0% { transform: translateX(-5%) scale(1); opacity: 0.6; }
-    100% { transform: translateX(5%) scale(1.1); opacity: 1; }
+    0% {
+      transform: translateX(-5%) scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateX(5%) scale(1.1);
+      opacity: 1;
+    }
   }
 </style>
