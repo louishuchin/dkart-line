@@ -1,10 +1,13 @@
 ---
+import Navbar from '../components/Navbar.astro';
+
 interface Props {
   title: string;
   description: string;
+  currentPage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, currentPage } = Astro.props;
 ---
 
 <!doctype html>
@@ -34,6 +37,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Navbar currentPage={currentPage} />
     <slot />
     <style is:global>
       @import '../styles/brand.css';
