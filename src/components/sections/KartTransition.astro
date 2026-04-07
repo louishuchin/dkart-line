@@ -1,0 +1,104 @@
+---
+/**
+ * DKART LINE — Kart Transition Parallax
+ * Scroll-triggered foreground animation moving a giant kart from left to right.
+ */
+---
+
+<div class="kart-parallax-wrapper" aria-hidden="true">
+  <div class="kart-parallax-anchor" id="parallaxAnchor">
+    <img 
+      src="/images/kart-anime.png" 
+      alt="" 
+      class="kart-giant" 
+      id="kartAnimated"
+      loading="lazy"
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const anchor = document.getElementById('parallaxAnchor');
+    const kart = document.getElementById('kartAnimated');
+    
+    if (!anchor || !kart) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+      if (!anchor || !kart) return;
+      const rect = anchor.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // On déclenche quand l'ancre (le point entre les deux sections) est visible
+      // On élargit la zone de détection pour que le kart arrive plus tôt et reparte plus tard
+      if (rect.top <= windowHeight + 200 && rect.bottom >= -200) {
+        const totalDistance = windowHeight + 400; // inclut un buffer
+        const currentScroll = windowHeight + 200 - rect.top;
+        const progress = currentScroll / totalDistance;
+        
+        // Mouvement de -50vw (gauche) à 150vw (droite) pour traverser complètement l'écran
+        const moveX = (progress * 200) - 50; 
+        kart.style.transform = `translate(-50%, -50%) translateX(${moveX}vw)`;
+      }
+      
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+
+    // Initialisation
+    updateParallax();
+  });
+</script>
+
+<style>
+  .kart-parallax-wrapper {
+    position: relative;
+    /* Ne prend strictement AUCUNE place, le kart est superposé en "z-index" */
+    width: 100%;
+    height: 0; 
+    margin: 0;
+    padding: 0;
+    overflow: visible; /* Laisse le kart déborder dans toutes les directions */
+    z-index: 50; /* Passer au-dessus du Hero et de la Timeline */
+    pointer-events: none; /* Le kart ne doit pas bloquer les clics en dessous */
+  }
+
+  .kart-parallax-anchor {
+    position: absolute;
+    top: 0; /* Aligné exactement sur la frontière entre les sections */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    z-index: 50;
+  }
+
+  .kart-giant {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    /* Immense taille pour un véritable effet de premier plan */
+    height: clamp(300px, 45vh, 700px);
+    width: auto;
+    object-fit: contain;
+    /* Centrage initial, puis on manipule le translateX en VH/VW */
+    transform: translate(-50%, -50%) translateX(-50vw);
+    will-change: transform;
+    /* Ombre profonde pour créer l'illusion de distance avec le fond */
+    filter: drop-shadow(40px 40px 25px rgba(0, 0, 0, 0.7));
+  }
+
+  /* Responsive pour petites résolutions */
+  @media (max-width: 768px) {
+    .kart-giant {
+      height: clamp(200px, 30vh, 350px);
+    }
+  }
+</style>
