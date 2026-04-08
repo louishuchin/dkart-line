@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/Navbar.astro';
+import SpeedInsights from "@vercel/speed-insights/astro"
 
 interface Props {
   title: string;
@@ -64,5 +65,6 @@ const { title, description, currentPage } = Astro.props;
         reveals.forEach((el) => observer.observe(el));
       });
     </script>
+    <SpeedInsights />
   </body>
 </html>
