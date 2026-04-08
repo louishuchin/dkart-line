@@ -13,9 +13,9 @@
         Ce n'est que<br /><span class="dk-text-accent">le début</span>
       </h2>
       <p class="future__subtitle">
-        Le prototype fonctionne à merveille, mais notre vision va beaucoup plus
-        loin. Nous avons d'innombrables idées pour améliorer nos karts et
-        continuer le développement de nouveaux produits innovants.
+        Le kart est fonctionnel, mais notre vision va beaucoup plus loin. On
+        veut faire encore mieux, encore plus ergonomique, toujours plus
+        innovant.
       </p>
     </div>
 
@@ -25,10 +25,9 @@
         <div class="future__card-icon">🚀</div>
         <h3 class="future__card-title dk-display">Recherche & Développement</h3>
         <p class="future__card-text">
-          Nos brouillons sont remplis d'idées pour repousser les limites de nos
+          Nous noircissons nos pages d'idées pour repousser les limites de nos
           drift karts. Le projet est loin d'être terminé, soyez attentifs à la
-          suite du projet, nous sommes loin d'avoir fini de construire nos karts
-          !
+          suite !
         </p>
       </div>
 
@@ -40,8 +39,8 @@
         <div class="future__card-icon">🤝</div>
         <h3 class="future__card-title dk-display">Soutenir le projet</h3>
         <p class="future__card-text">
-          Nous sommes des étudiants passionnés. Pour continuer cette aventure
-          dans les meilleures conditions, nous recherchons activement des <strong
+          Nous sommes quatre étudiants passionnés. Pour continuer cette aventure
+          dans les meilleures conditions, nous recherchons des <strong
             >coups de main</strong
           >, que ce soit sous forme de dons de matériel (pièces, outillage) ou
           de soutien financier.
@@ -200,13 +199,17 @@
   }
 
   .future__alert::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, rgba(var(--dk-accent-rgb), 0.1) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(var(--dk-accent-rgb), 0.1) 0%,
+      transparent 70%
+    );
     pointer-events: none;
   }
 
@@ -236,7 +239,8 @@
 
   @media (max-width: 768px) {
     .future {
-      padding: calc(var(--dk-space-3xl) + 60px) var(--dk-space-md) var(--dk-space-2xl);
+      padding: calc(var(--dk-space-3xl) + 60px) var(--dk-space-md)
+        var(--dk-space-2xl);
     }
 
     .future__header {
@@ -266,7 +270,7 @@
       margin-top: var(--dk-space-lg);
       border-left-width: 3px;
     }
-    
+
     .future__alert-title {
       font-size: 1rem;
       line-height: 1.3;

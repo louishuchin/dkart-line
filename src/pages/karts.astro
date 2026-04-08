@@ -1,5 +1,5 @@
 ---
-import LandingLayout from '../layouts/LandingLayout.astro';
+import LandingLayout from "../layouts/LandingLayout.astro";
 ---
 
 <LandingLayout
@@ -19,7 +19,7 @@ import LandingLayout from '../layouts/LandingLayout.astro';
           <span class="title-line title-line--accent">KARTS</span>
         </h1>
         <p class="page-desc dk-body">
-          Deux visions. Une seule obsession : le drift perfomant.
+          Deux visions. Une seule obsession. le drift perfomant.
         </p>
       </div>
     </header>
@@ -28,58 +28,62 @@ import LandingLayout from '../layouts/LandingLayout.astro';
     <section class="karts-grid">
       <!-- Kart Thermique -->
       <article class="kart-card dk-reveal">
-         <div class="kart-card__bg"></div>
-         <div class="kart-card__content">
-           <div class="top-row">
-             <div class="kart-card__badge">Thermique</div>
-             <div class="kart-card__status">
-               <span class="pulse-dot"></span>
-               En conception
-             </div>
-           </div>
-           
-           <h2 class="kart-card__title dk-display">PROTO T-01</h2>
-           
-           <div class="desc-placeholder">
-              <p class="kart-card__desc dk-body">
-                L’essence même du drift brut. Un châssis tubulaire conçu spécifiquement pour absorber la puissance mécanique.
-              </p>
-              
-              <div class="coming-soon">
-                <span class="coming-soon-line"></span>
-                <span class="coming-soon-text dk-display">Bientôt Disponible</span>
-                <span class="coming-soon-line"></span>
-              </div>
-           </div>
-         </div>
+        <div class="kart-card__bg"></div>
+        <div class="kart-card__content">
+          <div class="top-row">
+            <div class="kart-card__badge">Thermique</div>
+            <div class="kart-card__status">
+              <span class="pulse-dot"></span>
+              En conception
+            </div>
+          </div>
+
+          <h2 class="kart-card__title dk-display">PROTO Thermique</h2>
+
+          <div class="desc-placeholder">
+            <p class="kart-card__desc dk-body">
+              L’essence même du drift brut. Un châssis tubulaire conçu
+              spécifiquement pour absorber la puissance mécanique.
+            </p>
+
+            <div class="coming-soon">
+              <span class="coming-soon-line"></span>
+              <span class="coming-soon-text dk-display">Bientôt Disponible</span
+              >
+              <span class="coming-soon-line"></span>
+            </div>
+          </div>
+        </div>
       </article>
 
       <!-- Kart Électrique -->
       <article class="kart-card dk-reveal" style="transition-delay: 0.2s">
-         <div class="kart-card__bg"></div>
-         <div class="kart-card__content">
-           <div class="top-row">
-             <div class="kart-card__badge">Électrique</div>
-             <div class="kart-card__status">
-               <span class="pulse-dot pulse-dot--electric"></span>
-               En conception
-             </div>
-           </div>
-           
-           <h2 class="kart-card__title dk-display">PROTO E-01</h2>
-           
-           <div class="desc-placeholder">
-              <p class="kart-card__desc dk-body">
-                Le futur du drift. Couple instantané, centre de gravité optimisé et accélération implacable pour une précision maximale.
-              </p>
-              
-              <div class="coming-soon">
-                <span class="coming-soon-line"></span>
-                <span class="coming-soon-text dk-display">Bientôt Disponible</span>
-                <span class="coming-soon-line"></span>
-              </div>
-           </div>
-         </div>
+        <div class="kart-card__bg"></div>
+        <div class="kart-card__content">
+          <div class="top-row">
+            <div class="kart-card__badge">Électrique</div>
+            <div class="kart-card__status">
+              <span class="pulse-dot pulse-dot--electric"></span>
+              En conception
+            </div>
+          </div>
+
+          <h2 class="kart-card__title dk-display">PROTO Electrique</h2>
+
+          <div class="desc-placeholder">
+            <p class="kart-card__desc dk-body">
+              Le futur du drift. Couple instantané, centre de gravité optimisé
+              et accélération implacable pour une précision maximale.
+            </p>
+
+            <div class="coming-soon">
+              <span class="coming-soon-line"></span>
+              <span class="coming-soon-text dk-display">Bientôt Disponible</span
+              >
+              <span class="coming-soon-line"></span>
+            </div>
+          </div>
+        </div>
       </article>
     </section>
   </main>
@@ -146,7 +150,11 @@ import LandingLayout from '../layouts/LandingLayout.astro';
   }
 
   .title-line--accent {
-    background: linear-gradient(135deg, var(--dk-accent) 0%, var(--dk-silver-light) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--dk-accent) 0%,
+      var(--dk-silver-light) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -180,17 +188,22 @@ import LandingLayout from '../layouts/LandingLayout.astro';
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    transition: transform var(--dk-transition), box-shadow var(--dk-transition), border-color var(--dk-transition);
+    transition:
+      transform var(--dk-transition),
+      box-shadow var(--dk-transition),
+      border-color var(--dk-transition);
   }
 
   .kart-card:hover {
     transform: translateY(-5px);
     border-color: rgba(var(--dk-accent-rgb), 0.5);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(var(--dk-accent-rgb), 0.05);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(var(--dk-accent-rgb), 0.05);
   }
 
   .kart-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -264,16 +277,25 @@ import LandingLayout from '../layouts/LandingLayout.astro';
     box-shadow: 0 0 8px var(--dk-accent);
     animation: dk-pulse 2s infinite;
   }
-  
+
   .pulse-dot--electric {
     background: var(--dk-accent);
     box-shadow: 0 0 8px rgba(var(--dk-accent-rgb), 0.6);
   }
 
   @keyframes dk-pulse {
-    0% { transform: scale(0.95); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.5; }
+    0% {
+      transform: scale(0.95);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0.5;
+    }
   }
 
   /* Titles */
@@ -325,7 +347,7 @@ import LandingLayout from '../layouts/LandingLayout.astro';
     .karts-page {
       padding: var(--dk-space-xl) 5vw;
     }
-    
+
     .kart-card {
       min-height: 400px;
     }
@@ -335,16 +357,19 @@ import LandingLayout from '../layouts/LandingLayout.astro';
 <script>
   // Simple intersection observer to trigger reveals
   document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
 
-    document.querySelectorAll('.dk-reveal').forEach(el => {
+    document.querySelectorAll(".dk-reveal").forEach((el) => {
       observer.observe(el);
     });
   });

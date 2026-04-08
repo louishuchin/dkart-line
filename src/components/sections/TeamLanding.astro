@@ -1,0 +1,296 @@
+---
+/**
+ * DKART LINE — Team Section
+ * Présentation des 4 membres de l'équipe et encart de présentation globale.
+ */
+
+// Tableau des membres pour faciliter la gestion. 
+// Remplacez les chemins d'images et les noms par les vôtres.
+const members = [
+  { name: "Membre 1", role: "Rôle / Spécialité", image: "/images/team-1.jpg" },
+  { name: "Membre 2", role: "Rôle / Spécialité", image: "/images/team-2.jpg" },
+  { name: "Membre 3", role: "Rôle / Spécialité", image: "/images/team-3.jpg" },
+  { name: "Membre 4", role: "Rôle / Spécialité", image: "/images/team-4.jpg" }
+];
+---
+
+<section id="equipe" class="equipe dk-grain">
+  <div class="equipe__container">
+    <div class="equipe__header dk-reveal">
+      <span class="equipe__label">L'Équipe</span>
+      <h2 class="equipe__title dk-display">
+        Qui <span class="dk-text-accent">sommes-nous ?</span>
+      </h2>
+      <p class="equipe__subtitle">
+        Quatre étudiants passionnés, unis par l'envie de repousser les limites 
+        de l'ingénierie et de créer un drift kart d'exception.
+      </p>
+    </div>
+
+    <div class="equipe__grid">
+      {members.map((member, index) => (
+        <div class="equipe__card dk-reveal" style={`transition-delay: ${index * 0.1}s`}>
+          <div class="equipe__photo-wrapper">
+            <!-- Emplacement pour la photo du membre -->
+            <div class="equipe__photo-placeholder">
+              <span class="dk-text-accent">📸</span>
+            </div>
+            {/* Décommentez la ligne ci-dessous une fois vos photos ajoutées dans le dossier public/images/ */}
+            {/* <img src={member.image} alt={`Photo de ${member.name}`} class="equipe__photo-img" loading="lazy" /> */}
+          </div>
+          <div class="equipe__card-content">
+            <h3 class="equipe__card-name dk-display">{member.name}</h3>
+            <span class="equipe__card-role">{member.role}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Encart de présentation du groupe -->
+    <div class="equipe__mission dk-reveal" style="transition-delay: 0.5s">
+      <div class="equipe__mission-content">
+        <h3 class="equipe__mission-title dk-display">Notre Philosophie</h3>
+        <p class="equipe__mission-text">
+          L'esprit <strong>Dkart Line</strong>, c'est l'alliance de la mécanique de précision, 
+          de l'audace et de l'innovation. Ensemble, nous mettons nos compétences en commun 
+          pour concevoir un véhicule alliant performance, sécurité et sensations fortes, 
+          tout en portant haut les couleurs de notre formation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .equipe {
+    padding: calc(var(--dk-space-3xl) + 40px) var(--dk-space-lg) var(--dk-space-3xl);
+    background: linear-gradient(135deg, #080c12 0%, #0a1628 50%, #0d1f3c 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .equipe::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(var(--dk-accent-rgb), 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .equipe__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .equipe__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--dk-space-3xl);
+  }
+
+  .equipe__label {
+    display: inline-block;
+    font-family: var(--dk-font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--dk-accent);
+    margin-bottom: var(--dk-space-sm);
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(var(--dk-accent-rgb), 0.3);
+  }
+
+  .equipe__title {
+    font-size: clamp(3rem, 7vw, 5rem);
+    margin-bottom: var(--dk-space-md);
+    color: var(--dk-text);
+    line-height: 1;
+  }
+
+  .equipe__subtitle {
+    font-family: var(--dk-font-body);
+    font-size: 1.2rem;
+    color: var(--dk-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .equipe__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--dk-space-xl);
+    margin-bottom: var(--dk-space-3xl);
+  }
+
+  .equipe__card {
+    background: var(--dk-bg-elevated);
+    border: 1px solid var(--dk-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform var(--dk-transition-slow), box-shadow var(--dk-transition-slow), border-color var(--dk-transition);
+  }
+
+  .equipe__card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(var(--dk-accent-rgb), 0.4);
+  }
+
+  .equipe__photo-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: var(--dk-bg);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--dk-border);
+  }
+
+  .equipe__photo-placeholder {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: linear-gradient(135deg, rgba(var(--dk-accent-rgb), 0.05), rgba(var(--dk-accent-rgb), 0.15));
+    opacity: 0.8;
+  }
+
+  .equipe__photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform var(--dk-transition-slow);
+  }
+
+  .equipe__card:hover .equipe__photo-img {
+    transform: scale(1.05);
+  }
+
+  .equipe__card-content {
+    padding: var(--dk-space-lg);
+    text-align: center;
+  }
+
+  .equipe__card-name {
+    font-size: 1.5rem;
+    color: var(--dk-text);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.02em;
+  }
+
+  .equipe__card-role {
+    font-family: var(--dk-font-body);
+    font-size: 0.9rem;
+    color: var(--dk-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Encart de présentation */
+  .equipe__mission {
+    background: linear-gradient(to right, rgba(var(--dk-accent-rgb), 0.05), rgba(var(--dk-accent-rgb), 0.1));
+    border: 1px solid rgba(var(--dk-accent-rgb), 0.2);
+    border-left: 4px solid var(--dk-accent);
+    padding: var(--dk-space-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .equipe__mission::after {
+    content: 'DKART';
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    font-family: var(--dk-font-display);
+    font-size: 8rem;
+    color: rgba(var(--dk-accent-rgb), 0.03);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .equipe__mission-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+
+  .equipe__mission-title {
+    font-size: 2rem;
+    color: var(--dk-text);
+    margin-bottom: var(--dk-space-sm);
+  }
+
+  .equipe__mission-text {
+    font-family: var(--dk-font-body);
+    font-size: 1.1rem;
+    color: var(--dk-secondary);
+    line-height: 1.8;
+  }
+
+  .equipe__mission-text strong {
+    color: var(--dk-accent);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .equipe {
+      padding: calc(var(--dk-space-3xl) + 60px) var(--dk-space-md) var(--dk-space-2xl);
+    }
+
+    .equipe__header {
+      margin-bottom: var(--dk-space-xl);
+    }
+
+    .equipe__title {
+      font-size: clamp(2.2rem, 10vw, 3.5rem);
+    }
+
+    .equipe__grid {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--dk-space-md);
+      margin-bottom: var(--dk-space-2xl);
+    }
+
+    .equipe__card-content {
+      padding: var(--dk-space-md) var(--dk-space-sm);
+    }
+
+    .equipe__card-name {
+      font-size: 1.2rem;
+    }
+
+    .equipe__card-role {
+      font-size: 0.75rem;
+    }
+
+    .equipe__mission {
+      padding: var(--dk-space-xl) var(--dk-space-md);
+      border-left-width: 3px;
+    }
+
+    .equipe__mission-title {
+      font-size: 1.5rem;
+    }
+
+    .equipe__mission-text {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+</style>
