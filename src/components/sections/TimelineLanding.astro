@@ -10,43 +10,43 @@ const milestones = [
     period: "Les racines",
     year: "L'origine",
     title: "Dans le sang",
-    body: "Né dans une famille de passionnés de mécanique — père à moto, oncle mécanicien auto, grand-père manuel. Bricoler, créer, réparer : c'est un langage maternel, un environnement. Débuts sur la pocket bike. \n\nTrès vite, rouler ne suffit plus : il faut comprendre, démonter, modifier. En parallèle, les premières créations voient le jour.",
+    body: "Issus de milieux de passionnés de mécanique — certains parents à moto, d'autres proches mécanos, des familles de manuels. C'est depuis petit que cette envie de bricoler, créer, réparer est apparue pour créer nos premiers prototypes. Débuts sur des pocket bikes ou de vieux moteurs. En parallèle, les premières créations voient le jour.",
     icon: "🔧",
   },
   {
     period: "Troisième semestre",
     year: "L'idée",
     title: "L'envie de drift",
-    body: "L'idée du karting de drift prend forme. Elle vient d'un ancien projet inabouti avec un ami : construire un drift trike. L'idée, elle, est restée.\n\nLe projet est structuré et présenté pour devenir un projet étudiant avec toutes les démarches. Refus catégorique : jugé trop ambitieux pour une deuxième année. Il va falloir attendre. Ou pas.\n\nPersuadé du potentiel, la décision est prise de foncer quand même. Toutes les économies y passent. Location d'un box, achat d'un groupe électrogène pour travailler seul, en parallèle d'un rythme de cours déjà lourd.",
+    body: "L'idée du karting de drift prend forme. Elle vient d'un ancien projet inabouti avec un ami : construire un drift trike. L'idée, elle, est restée. Jugé trop ambitieux pour un projet étudiant en deuxième année. Il va falloir attendre. Ou pas. Persuadé du potentiel, la décision est prise de foncer quand même. Motivé pour travailler seul, en parallèle d'un rythme de cours déjà lourd.",
     icon: "💡",
   },
   {
     period: "Dans le box",
     year: "Construction",
     title: "Un kart qui roule",
-    body: "Construction, tests, avancée de force. Le premier prototype voit le jour. Il roule, mais cumule les problèmes : le feeling de drift n'est pas correct.\n\nAlors qu'il n'est même pas abouti, l'audace paie : multiples échanges avec le championnat de drift. L'objectif est clair : redoubler d'efforts avant la date clé pour y décrocher sa place dans le monde réel",
+    body: "Le premier prototype voit le jour. Il roule, mais cumule les problèmes : le feeling de drift n'est pas correct. Alors qu'il n'est même pas abouti, l'audace paie : multiples échanges avec le championnat de drift. L'objectif est clair : redoubler d'efforts avant la date clé pour y décrocher sa place dans le monde réel",
     icon: "🏎️",
   },
   {
     period: "Troisième année",
     year: "Le tournant",
     title: "Dimension supérieure",
-    body: "Nouvelle tentative : le projet étudiant est accepté ! Fini de travailler seul, l'équipe passe à quatre. Les exigences du projet sont revues à la hausse.",
+    body: "Nouvelle tentative : le projet étudiant est accepté ! Fini de travailler seul, l'équipe passe à quatre. Les exigences du projet sont revues à la hausse. Fort de l'expérience et des contacts du premier prototype, on efface tout et on recommence. Optimisation, correction des problèmes. Beaucoup de travail et une forte autonomie pour mener à bien le projet malgré les nombreuses difficultés rencontrées.",
     icon: "🤝",
-  },
-  {
-    period: "La reconstruction",
-    year: "Optimisation",
-    title: "On reprend tout",
-    body: "Fort de l'expérience et des contacts du premier prototype, on efface tout et on recommence. Optimisation, correction des problèmes. Beaucoup de travail et une forte autonomie pour vaincre des infrastructures limitées.",
-    icon: "🛠️",
   },
   {
     period: "L'aboutissement",
     year: "Aujourd'hui",
     title: "Le drift, enfin",
-    body: "Après des semaines et des semaines de travail acharné, le kart fonctionne. Et la détermination paie : un stand est officiellement obtenu sur la manche d'ouverture du Championnat de France de Drift.",
+    body: "Après des mois et des mois de travail acharné, le kart fonctionne et est agréable à manier pour les pilotes. La détermination paie : un stand est officiellement obtenu sur la manche d'ouverture du Championnat de France de Drift.",
     icon: "🏁",
+  },
+  {
+    period: "La reconstruction",
+    year: "Optimisation",
+    title: "Un futur prometteur",
+    body: "Ceci n'est que le début d'une longue histoire. L'équipe a de nombreuses idées et nous sommes très optimistes pour la suite. Et pour ça nous aurons <a href=\"/soutenez-nous\" class=\"dk-link-inline\">besoin de vous</a>",
+    icon: "🛠️",
   },
 ];
 ---
@@ -82,7 +82,7 @@ const milestones = [
               <span class="timeline__year">{m.year}</span>
             </div>
             <h3 class="timeline__card-title dk-display">{m.title}</h3>
-            <p class="timeline__card-body">{m.body}</p>
+            <p class="timeline__card-body" set:html={m.body} />
           </div>
         </div>
       ))
@@ -274,6 +274,21 @@ const milestones = [
     color: var(--dk-secondary);
     line-height: 1.65;
     white-space: pre-line;
+  }
+
+  .dk-link-inline {
+    color: var(--dk-accent);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(var(--dk-accent-rgb), 0.4);
+    transition: all var(--dk-transition-fast);
+  }
+
+  .dk-link-inline:hover {
+    color: var(--dk-text);
+    border-bottom-color: var(--dk-accent);
+    background: rgba(var(--dk-accent-rgb), 0.1);
+    box-shadow: 0 0 15px rgba(var(--dk-accent-rgb), 0.2);
   }
 
   /* ---- Closing ---- */
