@@ -277,18 +277,17 @@ const milestones = [
   }
 
   .dk-link-inline {
-    color: var(--dk-accent);
-    text-decoration: none;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--dk-accent);
+    text-underline-offset: 4px;
     font-weight: 700;
-    border-bottom: 2px solid rgba(var(--dk-accent-rgb), 0.4);
     transition: all var(--dk-transition-fast);
   }
 
   .dk-link-inline:hover {
-    color: var(--dk-text);
-    border-bottom-color: var(--dk-accent);
-    background: rgba(var(--dk-accent-rgb), 0.1);
-    box-shadow: 0 0 15px rgba(var(--dk-accent-rgb), 0.2);
+    color: var(--dk-accent);
+    text-decoration-thickness: 2px;
   }
 
   /* ---- Closing ---- */
