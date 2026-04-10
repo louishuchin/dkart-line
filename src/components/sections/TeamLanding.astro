@@ -7,10 +7,10 @@
 // Tableau des membres pour faciliter la gestion. 
 // Remplacez les chemins d'images et les noms par les vôtres.
 const members = [
-  { name: "Membre 1", role: "Rôle / Spécialité", image: "/images/team-1.jpg" },
-  { name: "Membre 2", role: "Rôle / Spécialité", image: "/images/team-2.jpg" },
-  { name: "Membre 3", role: "Rôle / Spécialité", image: "/images/team-3.jpg" },
-  { name: "Membre 4", role: "Rôle / Spécialité", image: "/images/team-4.jpg" }
+  { name: "Antoine Daroux", role: "Étudiant Ingénieur\nGénie Mécanique", image: "/images/team-1.jpg" },
+  { name: "Mael Perdoux", role: "Étudiant Ingénieur\nGénie Mécanique", image: "/images/team-2.jpg" },
+  { name: "Clément Patrier", role: "Étudiant Ingénieur\nGénie Mécanique", image: "/images/team-3.jpg" },
+  { name: "Louis Huchin", role: "Étudiant Ingénieur\nGénie Mécanique", image: "/images/team-4.jpg" }
 ];
 ---
 
@@ -54,7 +54,7 @@ const members = [
           L'esprit <strong>Dkart Line</strong>, c'est l'alliance de la mécanique de précision, 
           de l'audace et de l'innovation. Ensemble, nous mettons nos compétences en commun 
           pour concevoir un véhicule alliant performance, sécurité et sensations fortes, 
-          tout en portant haut les couleurs de notre formation.
+          tout en portant haut les couleurs de notre formation d'ingénieur.
         </p>
       </div>
     </div>
@@ -128,7 +128,7 @@ const members = [
 
   .equipe__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--dk-space-xl);
     margin-bottom: var(--dk-space-3xl);
   }
@@ -137,7 +137,8 @@ const members = [
     background: var(--dk-bg-elevated);
     border: 1px solid var(--dk-border);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
     overflow: hidden;
     transition: transform var(--dk-transition-slow), box-shadow var(--dk-transition-slow), border-color var(--dk-transition);
   }
@@ -149,12 +150,13 @@ const members = [
   }
 
   .equipe__photo-wrapper {
-    width: 100%;
+    width: 40%;
     aspect-ratio: 3 / 4;
     background: var(--dk-bg);
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--dk-border);
+    border-right: 1px solid var(--dk-border);
+    flex-shrink: 0;
   }
 
   .equipe__photo-placeholder {
@@ -183,23 +185,29 @@ const members = [
   }
 
   .equipe__card-content {
-    padding: var(--dk-space-lg);
-    text-align: center;
+    width: 60%;
+    padding: var(--dk-space-xl);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .equipe__card-name {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--dk-text);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     letter-spacing: 0.02em;
   }
 
   .equipe__card-role {
     font-family: var(--dk-font-body);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--dk-accent);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    white-space: pre-line;
+    line-height: 1.4;
   }
 
   /* Encart de présentation */
@@ -262,7 +270,7 @@ const members = [
     }
 
     .equipe__grid {
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: 1fr;
       gap: var(--dk-space-md);
       margin-bottom: var(--dk-space-2xl);
     }
@@ -272,11 +280,12 @@ const members = [
     }
 
     .equipe__card-name {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
     }
 
     .equipe__card-role {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
     }
 
     .equipe__mission {

@@ -10,21 +10,21 @@ const milestones = [
     period: "Les racines",
     year: "L'origine",
     title: "Dans le sang",
-    body: "Né dans une famille de passionnés de mécanique — père à moto, oncle mécanicien auto, grand-père manuel. Bricoler, créer, réparer : c'est un langage maternel, un environnement. Débuts sur la pocket bike. Très vite, rouler ne suffit plus : il faut comprendre, démonter, modifier. En parallèle, les premières créations voient le jour.",
+    body: "Né dans une famille de passionnés de mécanique — père à moto, oncle mécanicien auto, grand-père manuel. Bricoler, créer, réparer : c'est un langage maternel, un environnement. Débuts sur la pocket bike. \n\nTrès vite, rouler ne suffit plus : il faut comprendre, démonter, modifier. En parallèle, les premières créations voient le jour.",
     icon: "🔧",
   },
   {
     period: "Troisième semestre",
     year: "L'idée",
     title: "L'envie de drift",
-    body: "L'idée du karting de drift prend forme. Elle vient d'un ancien projet inabouti avec un ami : construire un drift trike. L'idée, elle, est restée. Le projet est structuré et présenté pour devenir un projet étudiant avec toutes les démarches. Refus catégorique : jugé trop ambitieux pour une deuxième année. Il va falloir attendre. Ou pas. Persuadé du potentiel, la décision est prise de foncer quand même. Toutes les économies y passent. Location d'un box, achat d'un groupe électrogène pour travailler seul, en parallèle d'un rythme de cours déjà lourd.",
+    body: "L'idée du karting de drift prend forme. Elle vient d'un ancien projet inabouti avec un ami : construire un drift trike. L'idée, elle, est restée.\n\nLe projet est structuré et présenté pour devenir un projet étudiant avec toutes les démarches. Refus catégorique : jugé trop ambitieux pour une deuxième année. Il va falloir attendre. Ou pas.\n\nPersuadé du potentiel, la décision est prise de foncer quand même. Toutes les économies y passent. Location d'un box, achat d'un groupe électrogène pour travailler seul, en parallèle d'un rythme de cours déjà lourd.",
     icon: "💡",
   },
   {
     period: "Dans le box",
     year: "Construction",
     title: "Un kart qui roule",
-    body: "Construction, tests, avancée de force. Le premier prototype voit le jour. Il roule, mais cumule les problèmes : le feeling de drift n'est pas correct. Alors qu'il n'est même pas abouti, l'audace paie : multiples échanges avec le championnat de drift. L'objectif est clair : redoubler d'efforts avant la date clé pour y décrocher sa place dans le monde réel",
+    body: "Construction, tests, avancée de force. Le premier prototype voit le jour. Il roule, mais cumule les problèmes : le feeling de drift n'est pas correct.\n\nAlors qu'il n'est même pas abouti, l'audace paie : multiples échanges avec le championnat de drift. L'objectif est clair : redoubler d'efforts avant la date clé pour y décrocher sa place dans le monde réel",
     icon: "🏎️",
   },
   {
@@ -216,6 +216,7 @@ const milestones = [
 
   /* ---- Card ---- */
   .timeline__card {
+    width: 100%; /* Force full available width */
     background: var(--dk-bg-elevated);
     border: 1px solid var(--dk-border);
     padding: var(--dk-space-md) var(--dk-space-lg);
@@ -272,6 +273,7 @@ const milestones = [
     font-size: 0.95rem;
     color: var(--dk-secondary);
     line-height: 1.65;
+    white-space: pre-line;
   }
 
   /* ---- Closing ---- */
@@ -303,7 +305,7 @@ const milestones = [
 
     .timeline__item--left,
     .timeline__item--right {
-      padding-left: 80px;
+      padding-left: 64px;
       padding-right: 0;
       justify-content: flex-start;
     }
@@ -316,6 +318,10 @@ const milestones = [
 
     .timeline__dot-icon {
       font-size: 1rem;
+    }
+
+    .timeline__card {
+      padding: var(--dk-space-md);
     }
   }
 </style>

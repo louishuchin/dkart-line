@@ -93,7 +93,7 @@ import LandingLayout from "../layouts/LandingLayout.astro";
   /* Base Layout */
   .karts-page {
     min-height: 100vh;
-    padding: var(--dk-space-2xl) 5vw;
+    padding: calc(80px + var(--dk-space-lg)) 5vw var(--dk-space-2xl);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,16 +113,23 @@ import LandingLayout from "../layouts/LandingLayout.astro";
     align-items: center;
     gap: 0.5rem;
     font-family: var(--dk-font-display);
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--dk-secondary);
-    margin-bottom: var(--dk-space-lg);
+    color: var(--dk-text);
+    background: rgba(var(--dk-accent-rgb), 0.1);
+    border: 1px solid rgba(var(--dk-accent-rgb), 0.4);
+    padding: 0.6rem 1.2rem;
+    margin-bottom: var(--dk-space-xl);
+    transition: all var(--dk-transition-fast);
   }
 
   .back-link:hover {
-    color: var(--dk-accent);
+    color: var(--dk-text);
+    background: rgba(var(--dk-accent-rgb), 0.2);
+    border-color: var(--dk-accent);
+    box-shadow: 0 0 15px rgba(var(--dk-accent-rgb), 0.3);
   }
 
   .back-link:hover .back-arrow {
@@ -345,7 +352,7 @@ import LandingLayout from "../layouts/LandingLayout.astro";
 
   @media (max-width: 768px) {
     .karts-page {
-      padding: var(--dk-space-xl) 5vw;
+      padding: calc(80px + var(--dk-space-md)) 5vw var(--dk-space-xl);
     }
 
     .kart-card {
